@@ -2,5 +2,9 @@ class card:
 
     def __init__(self) -> None:
         pass
+    
+    def card_flip(self):
+        pass
 
-    pass
+    def user_guess(self):
+        pass
