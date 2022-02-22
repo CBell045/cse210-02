@@ -24,16 +24,16 @@ root                    (project root folder)
   +-- game              (specific game classes)
     +-- casting         
       +-- actor         (Keeps track of appearences)
-      +-- artifact      (Provides information about itself)
+      +-- artifact      (Keep track of gems and rocks)
       +-- cast          (Keeps track of actors)
     +-- directing
-      +-- director      
-    +-- services
-      +-- keyboard_service
-      +-- video_service
+      +-- director      (Controls sequence of play)
+    +-- services        
+      +-- keyboard_service      (Takes player input)
+      +-- video_service         (Gives game output)
     +-- shared
-      +-- color
-      +-- point
+      +-- color         (holds and provides information about itself)
+      +-- point         
   +-- __main__.py       (entry point for program)
 +-- README.md           (general info)
 ```

@@ -57,7 +57,7 @@ def main():
         data = file.read()
         messages = data.splitlines()
 
-    for n in range(DEFAULT_ARTIFACTS):
+    for n in range(DEFAULT_ARTIFACTS): #Default Artifacts
         text = chr(random.randint(33, 126))
         message = messages[n]
 
@@ -77,6 +77,7 @@ def main():
         artifact.set_color(color)
         artifact.set_position(position)
         artifact.set_message(message)
+        artifact.set_velocity(Point(0, 1))
         cast.add_actor("artifacts", artifact)
     
     # start the game
