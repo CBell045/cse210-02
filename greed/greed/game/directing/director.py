@@ -65,6 +65,8 @@ class Director:
 
         for artifact in artifacts:
             artifact.move_next_y()
+
+            # This is where we do the interaction of hits
             if robot.get_position().equals(artifact.get_position()):
                 cast.remove_actor("artifacts", artifact)
                 if artifact.get_text() == "[]":
@@ -72,7 +74,7 @@ class Director:
                 else:
                     self._score += 1
                 banner.set_text(f"Score: {self._score}")
-                # This is where we need to do the interaction between hits
+                
         
     def _do_outputs(self, cast):
         """Draws the actors on the screen.

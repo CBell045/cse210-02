@@ -1,6 +1,3 @@
-import os
-import random
-
 from game.casting.actor import Actor
 from game.casting.artifact import Artifact
 from game.casting.cast import Cast
@@ -22,7 +19,6 @@ FONT_SIZE = 15
 COLS = 60
 ROWS = 40
 CAPTION = "Greed"
-DATA_PATH = os.path.dirname(os.path.abspath(__file__)) + "/data/messages.txt"
 WHITE = Color(255, 255, 255)
 DEFAULT_ARTIFACTS = 5
 
@@ -46,16 +42,14 @@ def main():
     position = Point(x, y)
 
     robot = Actor()
-    robot.set_text("#")
+    robot.set_text("!^!")
     robot.set_font_size(FONT_SIZE)
     robot.set_color(WHITE)
     robot.set_position(position)
     cast.add_actor("robots", robot)
     
     # create the artifacts
-    with open(DATA_PATH) as file:
-        data = file.read()
-        messages = data.splitlines()
+ 
 
     for n in range(DEFAULT_ARTIFACTS): #Default Artifacts
         artifact = Artifact()
