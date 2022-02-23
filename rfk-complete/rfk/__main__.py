@@ -24,17 +24,17 @@ ROWS = 40
 CAPTION = "Greed"
 DATA_PATH = os.path.dirname(os.path.abspath(__file__)) + "/data/messages.txt"
 WHITE = Color(255, 255, 255)
-DEFAULT_ARTIFACTS = 40
-
+DEFAULT_ARTIFACTS = 5
 
 def main():
     
     # create the cast
     cast = Cast()
     
+    # score
+
     # create the banner
     banner = Actor()
-    banner.set_text("")
     banner.set_font_size(FONT_SIZE)
     banner.set_color(WHITE)
     banner.set_position(Point(CELL_SIZE, 0))

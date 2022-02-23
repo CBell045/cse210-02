@@ -1,3 +1,4 @@
+import random
 from game.casting.artifact import Artifact
 
 class Director:
@@ -19,6 +20,7 @@ class Director:
         """
         self._keyboard_service = keyboard_service
         self._video_service = video_service
+        self._score = 0
         
     def start_game(self, cast):
         """Starts the game using the given cast. Runs the main game loop.
@@ -53,17 +55,23 @@ class Director:
         robot = cast.get_first_actor("robots")
         artifacts = cast.get_actors("artifacts")
         
-        banner.set_text("")
-        robot.move_next()
+        banner.set_text(f"Score: {self._score}")
+        robot.move_next_x()
         
         # Should create new artifacts
-        new_artifact = Artifact()
-        cast.add_actor("artifacts", new_artifact)
+        if random.randint(1, 10) > 7:
+            new_artifact = Artifact()
+            cast.add_actor("artifacts", new_artifact)
 
         for artifact in artifacts:
-            artifact.move_next()
+            artifact.move_next_y()
             if robot.get_position().equals(artifact.get_position()):
                 cast.remove_actor("artifacts", artifact)
+                if artifact.get_text() == "[]":
+                    self._score -= 1
+                else:
+                    self._score += 1
+                banner.set_text(f"Score: {self._score}")
                 # This is where we need to do the interaction between hits
         
     def _do_outputs(self, cast):

@@ -35,7 +35,7 @@ class Artifact(Actor):
         
         self.set_color(color)
         self.set_position(position)
-        self.set_velocity(Point(0, 1))
+        self.set_velocity(Point(0, 5))
         
 
 

@@ -108,4 +108,4 @@ class VideoService:
         for x in range(0, self._width, self._cell_size):
             pyray.draw_line(x, 0, x, self._height, pyray.GRAY)
 
-    def show_score()
+    #def show_score()
