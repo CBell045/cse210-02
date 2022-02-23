@@ -1,3 +1,5 @@
+from game.casting.artifact import Artifact
+
 class Director:
     """A person who directs the game. 
     
@@ -52,15 +54,17 @@ class Director:
         artifacts = cast.get_actors("artifacts")
         
         banner.set_text("")
-        max_x = self._video_service.get_width()
-        max_y = self._video_service.get_height()
-        robot.move_next(max_x, max_y)
+        robot.move_next()
         
+        # Should create new artifacts
+        new_artifact = Artifact()
+        cast.add_actor("artifacts", new_artifact)
+
         for artifact in artifacts:
-            artifact.move_next(max_x, max_y)
+            artifact.move_next()
             if robot.get_position().equals(artifact.get_position()):
-                message = artifact.get_message()
-                banner.set_text(message)
+                cast.remove_actor("artifacts", artifact)
+                # This is where we need to do the interaction between hits
         
     def _do_outputs(self, cast):
         """Draws the actors on the screen.

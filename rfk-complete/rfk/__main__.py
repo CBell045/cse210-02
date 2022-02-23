@@ -21,7 +21,7 @@ CELL_SIZE = 15
 FONT_SIZE = 15
 COLS = 60
 ROWS = 40
-CAPTION = "Robot Finds Kitten"
+CAPTION = "Greed"
 DATA_PATH = os.path.dirname(os.path.abspath(__file__)) + "/data/messages.txt"
 WHITE = Color(255, 255, 255)
 DEFAULT_ARTIFACTS = 40
@@ -42,7 +42,7 @@ def main():
     
     # create the robot
     x = int(MAX_X / 2)
-    y = int(MAX_Y / 2)
+    y = int(MAX_Y-20)
     position = Point(x, y)
 
     robot = Actor()
@@ -58,11 +58,12 @@ def main():
         messages = data.splitlines()
 
     for n in range(DEFAULT_ARTIFACTS): #Default Artifacts
-        text = chr(random.randint(33, 126))
+        text = random.choice(['*' , '[]'])    #chr(random.randint(33, 126))
+        assert text != '*' or '[]' , "shape is not being pulled"
         message = messages[n]
 
         x = random.randint(1, COLS - 1)
-        y = random.randint(1, ROWS - 1)
+        y = 1 #random.randint(1, ROWS - 1)
         position = Point(x, y)
         position = position.scale(CELL_SIZE)
 
