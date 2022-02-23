@@ -16,6 +16,8 @@ class Artifact(Actor):
     def __init__(self):
         super().__init__()
         self._message = ""
+
+        text = random.choice(['*' , '[]'])
         CELL_SIZE = 15
         FONT_SIZE = 15
         COLS = 60
